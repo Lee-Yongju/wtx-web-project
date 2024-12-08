@@ -1,0 +1,710 @@
+<!DOCTYPE HTML>
+<!--
+	Phantom by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>WTX - What Today XP</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+		<!-- Wrapper -->
+		<div id="wrapper">
+
+			<!-- Header -->
+			<header id="header">
+				<!-- Logo -->
+				<a href="index.html" class="logo">
+					<span class="symbol"><img src="images/logo.svg" alt="" /></span>
+				</a>
+			</header>
+
+			<!-- Main -->
+			<div id="main">
+				<div class="inner">
+					<div class="result-section">
+						<h2>점수 분석 결과</h2>
+						<div id="result-container" class="result-container">
+							<!-- 여기에 자바스크립트로 데이터를 표시 -->
+							<canvas id="radar-chart"></canvas>
+						</div>
+					</div>
+
+					<!-- Final Score Section -->
+					<div id="final-score" class="score-section">
+						<h2>최종 점수</h2>
+						<p id="final-score-value">85</p>
+					</div>
+					
+					<div id="subject-analysis">
+						<!-- 지능 차트 -->
+						<div class="subject-detail">
+							<h3>지능 상세 분석</h3>
+							<canvas id="intelligence-chart" width="400" height="400"></canvas>
+							<p>지능 분야에서 상위 <strong id="intelligence-percentile">20%</strong>에 속합니다.</p>
+							<p>상위 <span id="current-percentile">20%</span>에 속하는 다른 사람들은 일주일에 <span id="reading-days">3일</span> 정도 책을 읽습니다. 상위 <span id="target-percentile">10%</span>까지 가기 위해서는 <span id="required-pages">200페이지</span> 만큼의 독서가 필요합니다.</p>
+							
+							<button class="action-button">지능 분야 다른 활동 찾아보기</button>
+						</div>
+						<!-- 체력 차트 -->
+						<div class="subject-detail">
+							<h3>체력 상세 분석</h3>
+							<canvas id="strength-chart"></canvas>
+							<p>체력 분야에서 상위 <strong id="strength-percentile">20%</strong>에 속합니다.</p>
+							<p>상위 <span id="strength-current-percentile">20%</span>에 속하는 다른 사람들은 일주일에 <span id="strength-days">6일</span> 정도 <span id="strength-minutes">60분</span> 씩 운동을 합니다. 상위 <span id="strength-target-percentile">10%</span>까지 가기 위해서는 <span id="strength-required-minutes">200분</span> 만큼의 추가 운동이 필요합니다.</p>
+							<button class="action-button">체력 분야 다른 활동 찾아보기</button>
+						</div>
+						<!-- 문화력 차트 -->
+						<div class="subject-detail">
+							<h3>문화력 상세 분석</h3>
+							<canvas id="cultural-chart"></canvas>
+							<p>문화력 분야에서 상위 <strong id="cultural-percentile">20%</strong>에 속합니다.</p>
+							<p>상위 <span id="cultural-current-percentile">20%</span>에 속하는 다른 사람들은 일주일에 <span id="cultural-minutes">600분</span> 정도 문화 컨텐츠를 봅니다. 상위 <span id="cultural-target-percentile">10%</span>까지 가기 위해서는 <span id="cultural-required-minutes">300분</span> 만큼의 추가 시청이 필요합니다.</p>							
+							<button class="action-button">문화력 분야 다른 활동 찾아보기</button>
+						</div>
+						<!-- 계획력 차트 -->
+						<div class="subject-detail">
+							<h3>계획력 상세 분석</h3>
+							<canvas id="planning-chart"></canvas>
+							<p>계획력 분야에서 상위 <strong id="planning-percentile">20%</strong>에 속합니다.</p>
+							<p>상위 <span id="planning-current-percentile">20%</span>에 속하는 다른 사람들은 일주일에 <span id="planning-minutes">140분</span> 정도를 계획에 사용합니다. 상위 <span id="planning-target-percentile">10%</span>까지 가기 위해서는 <span id="planning-required-minutes">40분</span> 만큼을 더 계획에 사용해야 합니다.</p>							
+							<button class="action-button">계획력 분야 다른 활동 찾아보기</button>
+						</div>
+						<!-- 실행력 차트 -->
+						<div class="subject-detail">
+							<h3>실행력 상세 분석</h3>
+							<canvas id="execution-chart"></canvas>
+							<p>실행력 분야에서 상위 <strong id="execution-percentile">30%</strong>에 속합니다.</p>
+							<p>상위 <span id="execution-current-percentile">20%</span>에 속하는 다른 사람들은 일주일에 <span id="execution-tasks">150개</span> 정도의 하기 싫은 일을 해냅니다. 상위 <span id="execution-target-percentile">10%</span>까지 가기 위해서는 <span id="execution-required-tasks">30개</span> 만큼의 일을 더 해내야 합니다.</p>							
+							<button class="action-button">실행력 분야 다른 활동 찾아보기</button>
+						</div>
+						<!-- 의사소통 차트 -->
+						<div class="subject-detail">
+							<h3>의사소통 상세 분석</h3>
+							<canvas id="network-chart"></canvas>
+							<p>의사소통 분야에서 상위 <strong id="network-percentile">20%</strong>에 속합니다.</p>
+							<p>상위 <span id="network-current-percentile">20%</span>에 속하는 다른 사람들은 일주일에 <span id="network-minutes">360분</span> 정도 타인과 교류합니다. 상위 <span id="network-target-percentile">10%</span>까지 가기 위해서는 <span id="network-required-minutes">100분</span> 만큼의 소통이 필요합니다.</p>							
+							<button class="action-button">의사소통 분야 다른 활동 찾아보기</button>
+						</div>
+					</div>
+
+					<div style="height: 50px;"></div>
+					<h1 class="qna-title">Q & A</h1>
+					<p class="qna-description">보내주신 피드백을 바탕으로 실시간 업데이트 중입니다</p>
+					<div class="qna-item">
+						<b class="qna-question">Q : 유료 인가요?</b>
+						<p><b>A : WTX는 무료 앱웹 입니다.</b> 부분 유료화를 통해 AI비서 서비스나, 대규모 파티 생성 권한 등을 제공할 예정이에요 </p>
+					</div>
+					<div class="qna-item">
+						<b class="qna-question">Q : 경험치 획득에 객관적인 기준이 있나요?</b>
+						<p><b>A : 매일 입력해주신 시간이나 행동 량을 바탕으로, WTX가 정해진 수식을 통해 계산합니다.</b> 같은 시간을 하더라도 집중력이나 강도와 속도에 따라 성장은 다를 수 있습니다. WTX는 일상을 더 재미있게 만들기 위한 보조지표로서 작동하기에, 절대적이지는 않지만 모두에게 일률적인 경험치를 제공합니다.</p>
+					</div>
+					<div class="qna-item">
+						<b class="qna-question">Q : UI가 너무 투박해요</b>
+						<p><b>A : 해당 페이지의 UI는 서비스 설명만을 위한 UI입니다.</b> 실제 런칭시에는 다양한 아이디어를 받은 후, 디자이너와 협업하여 다른 UI를 사용할 계획입니다.</p>
+					</div>
+
+					<div class="notification-section">
+						<p class="title">WHAT TODAY XP는 아직 개발 중인 서비스입니다.</p>
+						<p>이메일을 남겨주시면 서비스가 런칭될 때 알림을 드리겠습니다.</p>
+						<input id="submit-email" type="email" placeholder="알림을 받으실 이메일" />
+						<p>WTX 서비스에 대한 조언이나 충고를 남겨주세요</p>
+						<p>의견을 남겨주신 모든분들께, 런칭 시 세 달간 무료로 프리미엄 혜택을 제공해드립니다.</p>
+						<textarea id="submit-advice" name="Text1" placeholder="서비스에 대한 조언이나 충고를 남겨주세요 (선택)"></textarea>
+						<button id="submit">지금 제출!</button>
+					
+						<div id="popup" style="display:none;">
+							<h1 style="color:#181818;">소중한 의견 감사합니다</h1>
+							<p style="color:#181818">런칭 시 메일을 보내드리겠습니다</p>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- Footer -->
+			<footer id="footer">
+				<div class="inner">
+					<section>
+						<h2>Contact</h2>
+						<p>Email: wkdrns717@gmail.com</p>
+						<p>
+							<a href="https://github.com/Lee-Yongju" class="icon brands style2 fa-github">
+								GitHub
+							</a>
+						</p>
+					</section>
+					<div class="copyright">
+						<p>&copy; WHAT TODAY XP. All rights reserved</p>
+					</div>
+				</div>
+			</footer>
+
+		</div>
+
+		<!-- Scripts -->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/11.10.0/math.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+			
+		<script>
+			// URL에서 파라미터 추출
+			const inputParams = new URLSearchParams(window.location.search);
+			const scores3 = {
+				intelligence: parseInt(inputParams.get('intelligence'), 10) || 0,
+				strength: parseInt(inputParams.get('strength'), 10) || 0,
+				cultural: parseInt(inputParams.get('cultural'), 10) || 0,
+				planning: parseInt(inputParams.get('planning'), 10) || 0,
+				execution: parseInt(inputParams.get('execution'), 10) || 0,
+				network: parseInt(inputParams.get('network'), 10) || 0
+			};
+
+			function normalizeValue(value, min, max, newMin = 0, newMax = 100) {
+				// 최소값과 최대값이 동일하면 계산 불가 (0으로 나누기 방지)
+				if (min === max) {
+					throw new Error("Min and Max cannot be the same.");
+				}
+
+				// 원래 범위를 새 범위로 변환
+				normalized = ((value - min) / (max - min)) * (newMax - newMin) + newMin;
+				// 결과를 새로운 범위로 강제 조정 (clamping)
+				if (normalized < newMin) normalized = newMin;
+				if (normalized > newMax) normalized = newMax;
+
+				// 결과값 반환
+				return normalized;
+			}
+
+			scores3.intelligence = normalizeValue(scores3.intelligence, 0, 30);
+			scores3.strength = normalizeValue(scores3.strength, 0, 80);
+			scores3.cultural = normalizeValue(scores3.cultural, 0, 180);
+			scores3.planning = normalizeValue(scores3.planning, 0, 30);
+			scores3.execution = normalizeValue(scores3.execution, 0, 10);
+			scores3.network = normalizeValue(scores3.network, 0, 120);
+
+			// 평균과 표준편차
+			const mean = 65;
+			const stdDev = 10;
+
+			// 상위 % 계산 함수
+			function calculatePercentile(score, mean, stdDev) {
+				const z = (score - mean) / stdDev;
+				const percentile = Math.round((1 - 0.5 * (1 + Math.erf(z / Math.sqrt(2)))) * 100);
+				return Math.max(0, Math.min(percentile, 100)); // 0~100%로 제한
+			}
+
+			// 최종 점수 계산 (평균값)
+			const finalScore = Math.round(Object.values(scores3).reduce((a, b) => a + b, 0) / 6);
+			document.getElementById('final-score-value').innerText = finalScore;
+
+			const chartMean = 50;
+			const chartStdDev = 20;
+
+			// 가우시안 분포 값을 계산하는 함수
+			function gaussian(x, mean, stdDev) {
+				const coefficient = 1 / (stdDev * Math.sqrt(2 * Math.PI));
+				const exponent = -Math.pow(x - mean, 2) / (2 * Math.pow(stdDev, 2));
+				return coefficient * Math.exp(exponent);
+			}
+
+			// 차트를 생성하는 함수
+			function createGaussianChart(ctx, score) {
+				const gaussianData = [];
+				const xLabels = [];
+
+				for (let x = 0; x <= 100; x++) {
+					xLabels.push(x);
+					gaussianData.push(gaussian(x, chartMean, chartStdDev));
+				}
+
+				const matchedGaussianValue = gaussian(score, chartMean, chartStdDev);
+
+				new Chart(ctx, {
+					type: 'line',
+					data: {
+						labels: xLabels,
+						datasets: [
+							{
+								label: '가우시안 분포',
+								data: gaussianData,
+								borderColor: 'rgba(30, 136, 229, 1)',
+								borderWidth: 2,
+								pointRadius: 0,
+								fill: false,
+							},
+							{
+								label: '내 점수',
+								data: xLabels.map((x) => (Math.abs(x - Math.round(score)) < 0.5 ? matchedGaussianValue : null)),
+								borderColor: 'rgba(255, 99, 132, 1)',
+								backgroundColor: 'rgba(255, 99, 132, 1)',
+								pointRadius: 6,
+								pointStyle: 'circle',
+								showLine: false,
+							},
+						],
+					},
+					options: {
+						responsive: true,
+						maintainAspectRatio: false,
+						scales: {
+							x: {
+								min: 0, // x축 최소값
+								max: 100, // x축 최대값
+								beginAtZero: false,
+								title: {
+									display: false,
+								},
+							},
+							y: {
+								beginAtZero: true,
+								title: {
+									display: false,
+								},
+								ticks: {
+									display: false,
+								},
+							},
+						},
+						plugins: {
+							legend: {
+								display: false,
+							},
+						},
+					},
+				});
+			}
+
+			// 차트를 그릴 대상과 점수 매핑
+			const chartTargets = {
+				'intelligence-chart': scores3.intelligence,
+				'strength-chart': scores3.strength,
+				'cultural-chart': scores3.cultural,
+				'planning-chart': scores3.planning,
+				'execution-chart': scores3.execution,
+				'network-chart': scores3.network,
+			};
+
+			// 각 차트 생성
+			Object.entries(chartTargets).forEach(([chartId, score]) => {
+				console.log(`Creating chart for: ${chartId} with score: ${score}`);
+				const canvas = document.getElementById(chartId);
+				if (canvas) {
+					const ctx = canvas.getContext('2d');
+					createGaussianChart(ctx, score);
+				} else {
+					console.error(`Canvas with ID ${chartId} not found.`);
+				}
+			});
+		</script>
+		
+		<script>
+			const queryParams = new URLSearchParams(window.location.search);
+			const scores = {
+				지능: scores3.intelligence || 0,
+				체력: scores3.strength || 0,
+				문화력: scores3.cultural || 0,
+				계획력: scores3.planning || 0,
+				실행력: scores3.execution || 0,
+				의사소통: scores3.network || 0,
+			};
+		
+			const ctx = document.getElementById('radar-chart').getContext('2d');
+			new Chart(ctx, {
+				type: 'radar',
+				data: {
+					labels: Object.keys(scores),
+					datasets: [{
+						label: '과목별 점수',
+						data: Object.values(scores),
+						backgroundColor: 'rgba(30, 136, 229, 0.2)',
+						borderColor: 'rgba(30, 136, 229, 1)',
+						borderWidth: 2,
+					}],
+				},
+				options: {
+					scales: {
+						r: {
+							min: 0,
+							max: 100,
+							ticks: {
+								stepSize: 20,
+								color: '#f0f0f0',
+								backdropColor: 'rgba(0, 0, 0, 0)', // 숫자 배경 제거
+							},
+							grid: {
+								color: '#888',
+							},
+							pointLabels: {
+								font: {
+									family: 'Pretendard, Arial, sans-serif',
+									size: 14
+								},
+								color: '#ffffff'
+                        	},
+						},
+					},
+					plugins: {
+						legend: {
+                            font: {
+                                family: 'Pretendard, Arial, sans-serif',
+                                size: 16
+                            },
+                            color: '#f0f0f0'
+						},
+					},
+				},
+			});
+		</script>
+
+		<script>
+			function calculateIntelligenceMetrics(score) {
+				// 점수를 기반으로 계산
+				const percentile = 100 - Math.min(100, Math.round((score / 100) * 100)); // 상위 %
+				const readingDays = Math.max(0, Math.round((score / 100) * 7)); // 독서 일수
+				const targetPercentile = Math.max(0, percentile - 10); // 목표 %
+				const requiredPages = Math.max(0, Math.round(3 * targetPercentile - (score / 100) * 300)); // 필요한 페이지 수
+
+				// 계산 결과 반환
+				return {
+					percentile,
+					readingDays,
+					targetPercentile,
+					requiredPages,
+				};
+			}
+			function updateIntelligenceSection(score) {
+				// 함수 호출로 계산 결과 가져오기
+				const metrics = calculateIntelligenceMetrics(score);
+
+				// 각 요소에 값 설정
+				document.getElementById('intelligence-percentile').innerText = `${metrics.percentile}%`;
+				document.getElementById('current-percentile').innerText = `${metrics.percentile}%`;
+				document.getElementById('reading-days').innerText = `${metrics.readingDays}일`;
+				document.getElementById('target-percentile').innerText = `${metrics.targetPercentile}%`;
+				document.getElementById('required-pages').innerText = `${metrics.requiredPages}페이지`;
+			}
+			// 지능 점수에 따라 업데이트 (예: 점수 75)
+			updateIntelligenceSection(scores3.intelligence);
+
+			function calculateStrengthMetrics(score) {
+				// 상위 % 계산 (임의 로직)
+				const percentile = Math.min(100, Math.round(100 - (score / 100) * 99.99)); // 상위 %
+				const days = Math.max(0, Math.round((score / 100) * 6)); // 운동 일수
+				const minutesPerDay = Math.max(40, Math.round((score / 100) * 60)); // 하루 운동 시간
+				const targetPercentile = Math.max(0, percentile - 10); // 목표 %
+				const requiredMinutes = Math.max(0, Math.round(300 - (score / 100) * 300)); // 추가 운동 시간
+
+				return {
+					percentile,
+					days,
+					minutesPerDay,
+					targetPercentile,
+					requiredMinutes,
+				};
+			}
+			function updateStrengthSection(score) {
+				// 체력 계산 결과 가져오기
+				const metrics = calculateStrengthMetrics(score);
+
+				// HTML 요소에 데이터 반영
+				document.getElementById('strength-percentile').innerText = `${metrics.percentile}%`;
+				document.getElementById('strength-current-percentile').innerText = `${metrics.percentile}%`;
+				document.getElementById('strength-days').innerText = `${metrics.days}일`;
+				document.getElementById('strength-minutes').innerText = `${metrics.minutesPerDay}분`;
+				document.getElementById('strength-target-percentile').innerText = `${metrics.targetPercentile}%`;
+				document.getElementById('strength-required-minutes').innerText = `${metrics.requiredMinutes}분`;
+			}
+			// 지능 점수에 따라 업데이트 (예: 점수 75)
+			updateStrengthSection(scores3.strength);
+
+			function calculateCulturalMetrics(score) {
+				// 상위 % 계산 (임의 로직)
+				const percentile = Math.min(100, Math.round(100 - (score / 100) * 99.99)); // 상위 %
+				const minutesWatched = Math.max(0, Math.round((score / 100) * 600)); // 시청 분
+				const targetPercentile = Math.max(0, percentile - 10); // 목표 %
+				const requiredMinutes = Math.max(0, Math.round(600 * ((100 - targetPercentile) / 100) - minutesWatched)); // 추가 시청 분
+
+				return {
+					percentile,
+					minutesWatched,
+					targetPercentile,
+					requiredMinutes,
+				};
+			}
+			function updateCulturalSection(score) {
+				// 문화력 계산 결과 가져오기
+				const metrics = calculateCulturalMetrics(score);
+
+				// HTML 요소에 데이터 반영
+				document.getElementById('cultural-percentile').innerText = `${metrics.percentile}%`;
+				document.getElementById('cultural-current-percentile').innerText = `${metrics.percentile}%`;
+				document.getElementById('cultural-minutes').innerText = `${metrics.minutesWatched}분`;
+				document.getElementById('cultural-target-percentile').innerText = `${metrics.targetPercentile}%`;
+				document.getElementById('cultural-required-minutes').innerText = `${metrics.requiredMinutes}분`;
+			}
+			updateCulturalSection(scores3.cultural);
+
+			function calculatePlanningMetrics(score) {
+				// 상위 % 계산 (임의 로직)
+				const percentile = Math.min(100, Math.round(100 - (score / 100) * 99.99)); // 상위 %
+				const minutesPlanned = Math.max(0, Math.round((score / 100) * 140)); // 계획 사용 시간
+				const targetPercentile = Math.max(0, percentile - 10); // 목표 %
+				const requiredMinutes = Math.max(0, Math.round(140 * ((100 - targetPercentile) / 100) - minutesPlanned)); // 추가 계획 시간
+
+				return {
+					percentile,
+					minutesPlanned,
+					targetPercentile,
+					requiredMinutes,
+				};
+			}
+			function updatePlanningSection(score) {
+				// 계획력 계산 결과 가져오기
+				const metrics = calculatePlanningMetrics(score);
+
+				// HTML 요소에 데이터 반영
+				document.getElementById('planning-percentile').innerText = `${metrics.percentile}%`;
+				document.getElementById('planning-current-percentile').innerText = `${metrics.percentile}%`;
+				document.getElementById('planning-minutes').innerText = `${metrics.minutesPlanned}분`;
+				document.getElementById('planning-target-percentile').innerText = `${metrics.targetPercentile}%`;
+				document.getElementById('planning-required-minutes').innerText = `${metrics.requiredMinutes}분`;
+			}
+			updatePlanningSection(scores3.planning);
+
+			function calculateExecutionMetrics(score) {
+				// 상위 % 계산 (임의 로직)
+				const percentile = Math.min(100, Math.round(100 - (score / 100) * 99.99)); // 상위 %
+				const tasksCompleted = Math.max(0, Math.round((score / 100) * 150)); // 완료한 일 개수
+				const targetPercentile = Math.max(1, percentile - 10); // 목표 %
+				const requiredTasks = Math.max(0, Math.round(150 * ((100 - targetPercentile) / 100) - tasksCompleted)); // 추가 필요한 일 개수
+
+				return {
+					percentile,
+					tasksCompleted,
+					targetPercentile,
+					requiredTasks,
+				};
+			}
+			function updateExecutionSection(score) {
+				// 실행력 계산 결과 가져오기
+				const metrics = calculateExecutionMetrics(score);
+
+				// HTML 요소에 데이터 반영
+				document.getElementById('execution-percentile').innerText = `${metrics.percentile}%`;
+				document.getElementById('execution-current-percentile').innerText = `${metrics.percentile}%`;
+				document.getElementById('execution-tasks').innerText = `${metrics.tasksCompleted}개`;
+				document.getElementById('execution-target-percentile').innerText = `${metrics.targetPercentile}%`;
+				document.getElementById('execution-required-tasks').innerText = `${metrics.requiredTasks}개`;
+			}
+			updateExecutionSection(scores3.execution);
+
+			function calculateNetworkMetrics(score) {
+				// 상위 % 계산 (임의 로직)
+				const percentile = Math.min(100, Math.round(100 - (score / 100) * 99.99)); // 상위 %
+				const minutesCommunicated = Math.max(0, Math.round((score / 100) * 360)); // 교류 시간
+				const targetPercentile = Math.max(1, percentile - 10); // 목표 %
+				const requiredMinutes = Math.max(0, Math.round(360 * ((100 - targetPercentile) / 100) - minutesCommunicated)); // 추가 소통 시간
+
+				return {
+					percentile,
+					minutesCommunicated,
+					targetPercentile,
+					requiredMinutes,
+				};
+			}
+			function updateNetworkSection(score) {
+				// 의사소통 계산 결과 가져오기
+				const metrics = calculateNetworkMetrics(score);
+
+				// HTML 요소에 데이터 반영
+				document.getElementById('network-percentile').innerText = `${metrics.percentile}%`;
+				document.getElementById('network-current-percentile').innerText = `${metrics.percentile}%`;
+				document.getElementById('network-minutes').innerText = `${metrics.minutesCommunicated}분`;
+				document.getElementById('network-target-percentile').innerText = `${metrics.targetPercentile}%`;
+				document.getElementById('network-required-minutes').innerText = `${metrics.requiredMinutes}분`;
+			}
+			updateNetworkSection(scores3.network);
+		</script>
+
+		<script src="assets/js/jquery.min.js"></script>
+		<script src="assets/js/browser.min.js"></script>
+		<script src="assets/js/breakpoints.min.js"></script>
+		<script src="assets/js/util.js"></script>
+		<script src="assets/js/main.js"></script>
+
+		<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/busy-load/dist/app.min.js"></script>
+		<link href="https://cdn.jsdelivr.net/npm/busy-load/dist/app.min.css" rel="stylesheet">
+		<script src="https://cdn.jsdelivr.net/gh/dinoqqq/simple-popup@master/dist/jquery.simple-popup.min.js"></script>
+		<link href="https://cdn.jsdelivr.net/gh/dinoqqq/simple-popup@master/dist/jquery.simple-popup.min.css" rel="stylesheet" type="text/css" />
+
+		<script type="application/javascript">
+			var ip = "null";
+			function getIP(json) {
+				console.log(json);
+				try {
+					ip = json.ip;
+				} catch (e) {
+					ip = 'unknown';
+				}
+				return;
+			}
+		</script>
+		<script type="application/javascript" src="https://jsonip.com?format=jsonp&callback=getIP"></script>
+
+		<script>
+			// 쿠키에서 값을 가져오는 함수
+			function getCookieValue(name) {
+				const value = "; " + document.cookie;
+				const parts = value.split("; " + name + "=");
+				if (parts.length === 2) {
+					return parts.pop().split(";").shift();
+				}
+			}
+
+			// 쿠키에 값을 저장하는 함수
+			function setCookieValue(name, value, days) {
+				let expires = "";
+				if (days) {
+					const date = new Date();
+					date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+					expires = "; expires=" + date.toUTCString();
+				}
+				document.cookie = name + "=" + (value || "") + expires + "; path=/";
+			}
+
+			function getUVfromCookie() {
+				// 6자리 임의의 문자열 생성
+				const hash = Math.random().toString(36).substring(2, 8).toUpperCase();
+				// 쿠키에서 기존 해시 값을 가져옴
+				const existingHash = getCookieValue("user");
+				// 기존 해시 값이 없으면, 새로운 해시 값을 쿠키에 저장
+				if (!existingHash) {
+					setCookieValue("user", hash, 180); // 쿠키 만료일은 6개월 
+					return hash;
+				} else {
+					// 기존 해시 값이 있으면, 기존 값을 반환
+					return existingHash;
+				}
+			}
+			
+			// Sam pading value to start with 0. eg: 01, 02, .. 09, 10, ..
+			function padValue(value) {
+				return (value < 10) ? "0" + value : value;
+			}
+
+			function getTimeStamp() {
+				const date = new Date();
+
+				const year = date.getFullYear();
+				const month = date.getMonth() + 1;
+				const day = date.getDate();
+				const hours = date.getHours();
+				const minutes = date.getMinutes();
+				const seconds = date.getSeconds();
+
+				const formattedDate = `${padValue(year)}-${padValue(month)}-${padValue(day)} ${padValue(hours)}:${padValue(minutes)}:${padValue(seconds)}`;
+
+				return formattedDate;
+			}
+
+			var queryString = location.search;
+			const urlParams = new URLSearchParams(queryString);
+			const utm = urlParams.get("utm")
+
+			var mobile = 'desktop';
+			if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+				// true for mobile device
+				mobile = 'mobile';
+			}
+
+			var data = JSON.stringify(
+				{"id": getUVfromCookie(),
+				"landingUrl":window.location.href, 
+				"ip":ip, 
+				"referer":document.referrer,
+				"time_stamp":getTimeStamp(), 
+				"utm":utm,
+				"device":mobile}
+			);
+
+			$(document).ready(function () {
+
+				addrScript = 'https://script.google.com/macros/s/AKfycbyubsJuWVuZbhVgX9j4cnqvc_UoFeiaScHrDWmqcDMI9XqUfEBhXuIWuTHb3RtPFHcmVw/exec';
+
+				$.ajax({
+					url: addrScript+'?action=insert&table=visitors&data='+data,
+					dataType: 'jsonp',
+					success: function (data) {
+					console.log('성공 - ', JSON.stringify(data));
+					},
+					error: function (xhr) {
+					console.log('실패 - ', JSON.stringify(xhr));
+					}
+				});
+				//axios.get(addrScript+'?action=insert&table=visitors&data='+data)
+				//.then(response => {
+				//	console.log(JSON.stringify(response));
+				//})
+				axios.get(addrScript+'?action=insert&table=visitors&data='+data)
+				.then(response => {
+						console.log(JSON.stringify(response));
+				})
+				.catch(error => {
+					if (error.response) {
+						// 서버가 2xx 범위를 벗어난 상태 코드로 응답한 경우
+						console.log(error.response.data);
+						console.log(error.response.status);
+						console.log(error.response.headers);
+					} else if (error.request) {
+						// 요청이 전송되었지만 응답을 받지 못한 경우
+						console.log(error.request);
+					} else {
+						// 요청 설정 중에 오류가 발생한 경우
+						console.log('Error', error.message);
+					}
+					console.log(error.config);
+				});
+			});
+
+
+
+			$("#submit").on("click", function () {
+				$.busyLoadFull("show");
+
+				const email = $("#submit-email").val();
+				const advice = $("#submit-advice").val();
+		
+				function validateEmail(email) {
+					var re = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
+					return re.test(email);
+				}
+		
+				if (email == '' || !validateEmail(email)) {
+					alert("이메일이 유효하지 않아 알림을 드릴 수가 없습니다. ");
+					$.busyLoadFull("hide");
+					return;
+				}
+		
+				var finalData = JSON.stringify({
+					"id": getUVfromCookie(),
+					"email": email,
+					"advice": advice
+				})
+		
+				axios.get(addrScript+'?action=insert&table=registration&data=' + finalData)
+					.then(response => {
+					console.log(response.data.data);
+					//alert(JSON.stringify(response));
+					$.busyLoadFull("hide");
+					$.fn.simplePopup({ type: "html", htmlSelector: "#popup" });
+					$('#submit-email').val('');
+					$('#submit-advice').val('');
+					})
+			});
+		</script>
+	</body>
+</html>

@@ -1,0 +1,471 @@
+@import url("https://cdn.jsdelivr.net/npm/pretendard/dist/web/static/pretendard.css");
+
+html, body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Pretendard', sans-serif;
+    background-color: #121212;
+    color: #f0f0f0;
+    line-height: 1.5;
+}
+
+*, *::before, *::after {
+    box-sizing: inherit;
+}
+
+#wrapper {
+    padding: 20px;
+}
+
+a {
+    color: #1e88e5;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+header, footer {
+    text-align: center;
+	padding: 20px;
+}
+
+header .logo {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+header .logo img {
+    width: 50px;
+    margin-right: 10px;
+}
+
+h1, h2 {
+    margin: 10px 0;
+}
+
+h1 {
+    font-size: 4em;
+}
+
+h2 {
+    font-size: 1.5em;
+}
+
+p {
+    margin: 10px 0;
+}
+
+input[type="email"], textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #444;
+    border-radius: 5px;
+    background-color: #222;
+    color: #f0f0f0;
+}
+
+button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #1e88e5;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #1565c0;
+}
+
+.features {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* 카드 간격 */
+    max-width: 1600px; /* 최대 너비 */
+    margin: 0 auto; /* 가운데 정렬 */
+}
+
+.feature-item {
+	width: 100%; /* 컨테이너를 부모 너비에 맞춤 */
+    max-width: 1100px; /* 원하는 최대 크기 설정 */
+	align-items: center; /* 수직 중앙 정렬 */
+    justify-content: center; /* 수평 중앙 정렬 */
+    margin: 0 auto; /* 가운데 정렬 */
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+    padding: 20px;
+    border: 1px solid #444; /* 카드 테두리 */
+    border-radius: 8px;
+    background-color: #1e1e1e;
+}
+
+.feature-item img {
+    width: 90%; /* 부모 컨테이너의 너비를 차지 */
+	max-width: 600px; /* 최대 너비 제한 */
+    height: auto;
+    flex-shrink: 0; /* 이미지가 줄어들지 않게 고정 */
+	object-fit: cover; /* 이미지 채우기 */
+}
+
+.feature-text h3 {
+    margin: 0;
+    font-size: 2.5rem; /* 기본 제목 크기 */
+    color: #f0f0f0;
+}
+
+.feature-text p {
+    margin: 5px 0 0;
+    font-size: 1.5rem; /* 기본 텍스트 크기 */
+    color: #ccc;
+}
+
+/* 작은 화면: 한 줄에 하나씩 표시 */
+@media (max-width: 768px) {
+    .feature-item {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .feature-item img {
+		max-width:80%; /* 작은 화면에서 이미지가 너무 작아지지 않도록 */
+        margin: 0 auto; /* 가운데 정렬 */
+	}
+
+    .feature-text h3 {
+        font-size: 1.8rem; /* 제목 크기 증가 */
+    }
+
+    .feature-text p {
+        font-size: 1.2rem; /* 텍스트 크기 증가 */
+    }
+}
+
+/* 매우 작은 화면: 글씨 크기 축소 */
+@media (max-width: 480px) {
+    .feature-item img {
+        width: 120px; /* 이미지 크기 조정 */
+    }
+
+    .feature-text h3 {
+        font-size: 1.5rem; /* 제목 크기 축소 */
+    }
+
+    .feature-text p {
+        font-size: 1rem; /* 텍스트 크기 축소 */
+    }
+}
+
+footer {
+    font-size: 14px;
+    margin-top: 30px;
+    text-align: center;
+}
+
+footer p {
+    margin: 5px 0;
+}
+
+footer a {
+    color: #1e88e5;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+.notification-section {
+    background-color: #1e1e1e;
+    margin: 20px auto; /* 중앙 정렬을 위한 margin */
+    padding: 15px; /* 기존 20px에서 줄임 */
+    max-width: 800px; /* 배경 박스 너비 제한 */
+    border-radius: 8px;
+    text-align: center;
+    color: #f0f0f0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.notification-section .title {
+    font-weight: bold;
+    font-size: 1.2em;
+    margin-bottom: 10px;
+    color: #ffffff;
+}
+
+.notification-section input[type="email"] {
+    width: 100%;
+    max-width: 350px;
+    padding: 10px;
+    margin: 10px auto; /* 가운데 정렬 */
+    border: 1px solid #444444;
+    border-radius: 5px;
+    background-color: #2a2a2a;
+    color: #f0f0f0;
+    font-size: 1em;
+    display: block; /* 중앙 정렬을 위한 block 속성 */
+}
+
+.notification-section input[type="email"]::placeholder {
+    color: #aaaaaa;
+}
+
+.notification-section textarea {
+    width: 100%;
+    max-width: 350px;
+    height: 150px; /* 기존 200px에서 줄임 */
+    padding: 10px;
+    margin: 10px auto; /* 가운데 정렬 */
+    border: 1px solid #444444;
+    border-radius: 5px;
+    background-color: #2a2a2a;
+    color: #f0f0f0;
+    font-size: 1em;
+    line-height: 1.5;
+    resize: vertical;
+    display: block; /* 중앙 정렬 */
+}
+
+.notification-section textarea::placeholder {
+    color: #aaaaaa;
+    font-family: 'Pretendard', sans-serif;
+    font-size: 1em;
+    font-style: italic;
+}
+
+.notification-section button {
+    width: 100%;
+    max-width: 350px;
+    padding: 10px;
+    margin: 10px auto; /* 가운데 정렬 */
+    background-color: #1e88e5;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
+    display: block; /* 중앙 정렬 */
+}
+
+.notification-section button:hover {
+    background-color: #1565c0;
+}
+
+.notification-section #popup {
+    text-align: center;
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #1e1e1e !important; /* 배경색 강제 적용 */
+    border: 1px solid #444444 !important; /* 테두리 강제 적용 */
+    border-radius: 5px !important; /* 둥근 모서리 강제 적용 */
+    color: #f0f0f0 !important; /* 글자색 강제 적용 */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5) !important; /* 그림자 강제 적용 */
+}
+
+#popup.active {
+    display: block;
+    background-color: #1e1e1e;
+    color: #f0f0f0;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.notification-section #popup h1 {
+    margin-bottom: 10px;
+}
+
+.notification-section #popup p {
+    margin: 0;
+}
+
+.form-section, .result-section {
+    margin: 20px auto;
+    padding: 20px;
+    max-width: 600px;
+    background-color: #1e1e1e;
+    border-radius: 8px;
+    color: #f0f0f0;
+    text-align: center;
+}
+
+label {
+    display: block;
+    margin: 10px 0 5px;
+}
+
+input {
+    width: 80%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #444;
+    border-radius: 5px;
+    background-color: #2a2a2a;
+    color: #f0f0f0;
+}
+
+/* Q&A Section */
+.qna-title {
+    font-size: 2em;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.qna-description {
+    font-size: 1em;
+    text-align: center;
+    color: #aaaaaa;
+    margin-bottom: 20px;
+}
+
+.qna-item {
+    margin-bottom: 20px;
+}
+
+.qna-question {
+    display: block;
+    font-size: 1.2em;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #f0f0f0;
+}
+
+.qna-item p {
+    font-size: 1em;
+    line-height: 1.6;
+    color: #dcdcdc;
+}
+
+/* 점수 분석 결과 컨테이너 스타일 */
+.result-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* 수평 가운데 정렬 */
+    justify-content: center; /* 수직 가운데 정렬 (필요 시 추가) */
+    text-align: center; /* 텍스트 가운데 정렬 */
+    margin: 20px auto; /* 위아래 여백 및 가운데 정렬 */
+    padding: 0; /* 여백 제거 */
+}
+
+/* Responsive Design for Q&A Section */
+@media (max-width: 768px) {
+    .qna-title {
+        font-size: 1.5em;
+    }
+
+    .qna-description {
+        font-size: 0.9em;
+    }
+
+    .qna-question {
+        font-size: 1.1em;
+    }
+
+    .qna-item p {
+        font-size: 0.9em;
+    }
+}
+
+@media (min-width: 1200px) {
+    .qna-title {
+        font-size: 2.5em;
+    }
+
+    .qna-description {
+        font-size: 1.2em;
+    }
+
+    .qna-question {
+        font-size: 1.5em;
+    }
+
+    .qna-item p {
+        font-size: 1.1em;
+    }
+}
+
+/* Final Score Section - Highlighted */
+.score-section {
+    text-align: center;
+    margin: 20px auto;
+    padding: 15px;
+    background-color: #96F5FF; /* 노란색 배경 */
+    color: #1e1e1e; /* 어두운 글자색 */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    font-size: 1.2em;
+    animation: pulse 10s infinite;
+    width: 50%;
+    max-width: 600px; /* 그래프와 상세 분석 섹션과 동일한 폭 */
+}
+
+@keyframes pulse {
+    0% { background-color: #96F5FF; }
+    50% { background-color: #9B81FC; }
+    100% { background-color: #96F5FF; }
+}
+
+.score-section h2 {
+    font-size: 2em;
+    margin-bottom: 10px;
+}
+
+.score-section p {
+    font-size: 2.5em;
+    font-weight: bold;
+}
+
+/* Subject Analysis Section */
+.subject-detail {
+    margin: 20px auto;
+    padding: 15px;
+    background-color: #1e1e1e;
+    color: #f0f0f0;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    max-width: 600px; /* 중앙 정렬에 필요한 폭 제한 */
+}
+
+.subject-detail h3 {
+    font-size: 1.5em;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.subject-detail p {
+    margin: 10px 0;
+    font-size: 1em;
+    line-height: 1.6;
+}
+
+.subject-detail .action-button {
+    display: block;
+    margin: 15px auto;
+    padding: 10px 15px;
+    background-color: #1e88e5;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
+    max-width: 250px;
+    text-align: center;
+}
+
+.subject-detail .action-button:hover {
+    background-color: #1565c0;
+}
+
+.subject-detail canvas {
+    max-width: 100%; /* 부모 요소의 너비를 초과하지 않도록 설정 */
+    max-height: 400px; /* 최대 높이 제한 */
+    margin: 0 auto; /* 가운데 정렬 */
+    display: block;
+    width: 1400px; /* 그래프의 기본 폭을 늘림 */
+    height: auto; /* 비율 유지 */
+}
